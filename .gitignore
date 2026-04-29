@@ -1,0 +1,15 @@
+# Obsidian 工作区（每台机器不同）
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+
+# Claude Code 本地设置
+.claude/settings.local.json
+CLAUDE.local.md
+
+# macOS
+.DS_Store
+.Trash/
+
+# 临时文件
+*.tmp
+*.swp
