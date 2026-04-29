@@ -25,33 +25,45 @@ obsidian version    # 应该输出 Obsidian 版本号
 
 ## 2. Clone 仓库
 
+先决定两件事：
+- **你想给你的个人 OS 起什么名字？** 默认 `LinkcOS`；也可以改成 `MyOS` / `<你的名字>OS` / `Brain` / `第二大脑` / 任意你喜欢的
+- **想放在本机哪个目录？** 默认 `~/linkc-os`；如果改了系统名建议路径也对应改（比如 `~/my-os`）
+
+然后 clone：
+
 ```bash
 git clone https://github.com/noonsleeping/linkc-os.git ~/linkc-os
 cd ~/linkc-os
 ```
 
-放在哪个目录都行。`~/linkc-os` 只是默认推荐位置。
+如果你想用别的目录名：
+
+```bash
+git clone https://github.com/noonsleeping/linkc-os.git ~/my-os
+cd ~/my-os
+```
 
 ---
 
 ## 3. 让你的 AI Agent 接手 bootstrap
 
-打开你的 AI 编程 Agent（在 `~/linkc-os` 目录下启动 Claude Code，或在 Codex/Cursor 里 open folder），把下面这段 prompt 完整复制给它：
+在你 clone 好的仓库目录下打开 AI 编程 Agent（Claude Code 在该目录启动；Codex / Cursor / AntiGravity 用 "open folder" 打开），把下面这段 prompt 完整复制给它：
 
 ```
-请按 AGENTS.md 的 8 步 bootstrap 协议帮我初始化这个 LinkcOS 仓库。
+请按 AGENTS.md 的 8 步 bootstrap 协议帮我初始化这个仓库。
 先读 AGENTS.md 了解流程，然后从第 1 步"核对依赖"开始执行。
-我会在你需要时回答关于我自己的问题。
+我会在你需要时回答关于我自己的问题，以及关于"系统名字"和"目录路径"的偏好。
 ```
 
 Agent 会：
 1. 检查依赖
-2. 问你的名字 / 角色 / 当前活跃项目
+2. 问你的名字 / 角色 / 当前活跃项目，以及你想给系统起的名字 + 仓库目录路径
 3. 改写 `CLAUDE.md` 的身份锚点
 4. 在 `02-wiki/entities/people/me.md` 写你的 self 页
 5. 为每个活跃项目生成一个 project 页
 6. 起一个今日 journal
 7. 绑定 hooks 路径
+7.5. 如果你给系统改了名字，把 LinkcOS → 你的新名字替换掉（CLAUDE.md / Skills / session-brief.sh，不动 LICENSE / changelog / docs）
 8. 报告完成 + 下一步操作建议
 
 整个过程大概 5-10 分钟。
@@ -60,16 +72,18 @@ Agent 会：
 
 ## 4. 手动 fallback（不用 AI Agent 时）
 
-如果你想自己一步步配，按 [`AGENTS.md`](AGENTS.md) 的 8 步顺序手工做：
+如果你想自己一步步配，按 [`AGENTS.md`](AGENTS.md) 的步骤手工做：
 
 1. 读 `docs/dependencies.md` 装齐依赖
-2. 想清楚自己的身份 / 角色 / 1-3 个活跃项目
-3. 编辑 `CLAUDE.md` 的"# 身份锚点"块（删掉占位 + 注释）
-4. 复制 `03-schema/templates/person.md` → `02-wiki/entities/people/me.md` 填好
-5. 复制 `03-schema/templates/project.md` × N 份 → `02-wiki/projects/` 填好
-6. 复制 `03-schema/templates/journal.md` → `02-wiki/journal/<今日>.md` 写第一条
-7. 如果你的 Agent harness 不识别 `${CLAUDE_PROJECT_DIR}`，改 `.claude/settings.json` 和 `.claude/scripts/session-brief.sh` 里的路径变量为你的实际绝对路径
-8. 重启你的 Agent，给它说点你今天发生的事，看 `linkc-compile` skill 有没有正常工作
+2. 想清楚：身份 / 角色 / 1-3 个活跃项目，以及你想给系统起的名字 + clone 到哪个目录
+3. clone 到你选的目录
+4. 编辑 `CLAUDE.md` 的"# 身份锚点"块（删掉占位 + 注释）
+5. 复制 `03-schema/templates/person.md` → `02-wiki/entities/people/me.md` 填好
+6. 复制 `03-schema/templates/project.md` × N 份 → `02-wiki/projects/` 填好
+7. 复制 `03-schema/templates/journal.md` → `02-wiki/journal/<今日>.md` 写第一条
+8. 如果你的 Agent harness 不识别 `${CLAUDE_PROJECT_DIR}`，改 `.claude/settings.json` 和 `.claude/scripts/session-brief.sh` 里的路径变量为你的实际绝对路径
+9. **如果你给系统起了非 LinkcOS 的名字**：在 `CLAUDE.md` / `.claude/skills/*/SKILL.md` / `.claude/scripts/session-brief.sh` 里把 `LinkcOS` 替换成你的新名字（不要动 `LICENSE` / `03-schema/changelog/` / `docs/`，那些是模板溯源信息）
+10. 重启你的 Agent，给它说点你今天发生的事，看 `linkc-compile` skill 有没有正常工作
 
 ---
 

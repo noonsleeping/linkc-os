@@ -60,14 +60,16 @@
 打开你的 AI 编程 Agent（Claude Code / Codex / AntiGravity / Cursor / Cline 等），把这段 prompt 完整复制给它：
 
 ```
-我想基于 https://github.com/noonsleeping/linkc-os 这个模板搭建属于我自己的 LinkcOS。
+我想基于 https://github.com/noonsleeping/linkc-os 这个模板搭建属于我自己的个人 OS。
 
 请：
-1. 把这个仓库 clone 到我本机的 ~/linkc-os 目录（如果你不能直接执行 shell，告诉我命令我自己跑）
-2. 读仓库根目录的 AGENTS.md，了解 8 步 bootstrap 协议
-3. 从第 1 步"核对依赖"开始按协议执行
+1. 读仓库根目录的 AGENTS.md，了解完整 bootstrap 协议
+2. 按协议执行——AGENTS.md 会引导你问我关于我自己的问题（名字 / 角色 / 当前活跃项目），
+   也会问我"想给系统起什么名字"和"想 clone 到本机哪个目录"——我可以保留 LinkcOS 默认名，
+   也可以改成自己想的名字
+3. 如果你不能直接执行 shell（比如你只是个 IDE 里的代码补全 agent），把要跑的命令告诉我，我自己跑
 
-我会在你需要时回答关于我自己的问题（名字、角色、当前活跃项目等）。
+我会逐项回答。
 ```
 
 详细搭建步骤见 [`SETUP.md`](SETUP.md)。Agent 协议见 [`AGENTS.md`](AGENTS.md)。
