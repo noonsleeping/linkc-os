@@ -26,21 +26,21 @@ obsidian version    # 应该输出 Obsidian 版本号
 ## 2. Clone 仓库
 
 先决定两件事：
-- **你想给你的个人 OS 起什么名字？** 默认 `LinkcOS`；也可以改成 `MyOS` / `<你的名字>OS` / `Brain` / `第二大脑` / 任意你喜欢的
-- **想放在本机哪个目录？** 默认 `~/linkc-os`；如果改了系统名建议路径也对应改（比如 `~/my-os`）
+- **你想给你的个人 OS 起什么名字？** 默认 `myos`；也可以改成 `<你的名字>OS` / `Brain` / `第二大脑` / `LinkcOS`（保留模板原名）/ 任意你喜欢的
+- **想放在本机哪个目录？** 默认 `~/myos`（和系统名对齐）；起了别的名字建议对应改
 
 然后 clone：
 
 ```bash
-git clone https://github.com/noonsleeping/linkc-os.git ~/linkc-os
-cd ~/linkc-os
+git clone https://github.com/noonsleeping/linkc-os.git ~/myos
+cd ~/myos
 ```
 
-如果你想用别的目录名：
+如果你想用别的目录名（比如保留 LinkcOS 原名）：
 
 ```bash
-git clone https://github.com/noonsleeping/linkc-os.git ~/my-os
-cd ~/my-os
+git clone https://github.com/noonsleeping/linkc-os.git ~/linkc-os
+cd ~/linkc-os
 ```
 
 ---
