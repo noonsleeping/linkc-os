@@ -57,12 +57,17 @@
 
 ### 路径 A · 复刻自己的 LinkcOS
 
-把仓库地址 + 这段 prompt 喂给你的 AI Agent，它会自动 bootstrap：
+打开你的 AI 编程 Agent（Claude Code / Codex / AntiGravity / Cursor / Cline 等），把这段 prompt 完整复制给它：
 
 ```
-请按 AGENTS.md 的 8 步 bootstrap 协议帮我初始化这个 LinkcOS 仓库。
-先读 AGENTS.md 了解流程，然后从第 1 步"核对依赖"开始执行。
-我会在你需要时回答关于我自己的问题。
+我想基于 https://github.com/noonsleeping/linkc-os 这个模板搭建属于我自己的 LinkcOS。
+
+请：
+1. 把这个仓库 clone 到我本机的 ~/linkc-os 目录（如果你不能直接执行 shell，告诉我命令我自己跑）
+2. 读仓库根目录的 AGENTS.md，了解 8 步 bootstrap 协议
+3. 从第 1 步"核对依赖"开始按协议执行
+
+我会在你需要时回答关于我自己的问题（名字、角色、当前活跃项目等）。
 ```
 
 详细搭建步骤见 [`SETUP.md`](SETUP.md)。Agent 协议见 [`AGENTS.md`](AGENTS.md)。
