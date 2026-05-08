@@ -53,6 +53,18 @@
 
 ---
 
+## 扩展 Skill（外部数据源接入）
+
+LinkcOS 自带的 6 个 Skill 是核心 wiki 流水。下面这些 Skill 单独维护、独立 repo，专门处理特定外部数据源——通过 `04-workflow/` 接入层把数据搬到 wiki 后再加工。
+
+| Skill | 用途 | 上游依赖 | Repo |
+|---|---|---|---|
+| **dayflow-ingest** + **dayflow-reflect** | 把 Dayflow 桌面活动 timeline 数据搬到 wiki，并生成 AI 日复盘 | [Dayflow](https://github.com/JerryZLiu/Dayflow)（macOS 桌面活动追踪） | [noonsleeping/dayflow-skills](https://github.com/noonsleeping/dayflow-skills) |
+
+未来其他外部数据源 Skill 加进表格即可。
+
+---
+
 ## 你能用这个仓库做什么
 
 ### 路径 A · 复刻自己的 LinkcOS
